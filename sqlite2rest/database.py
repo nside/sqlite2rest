@@ -2,7 +2,7 @@ import sqlite3
 
 class Database:
     def __init__(self, db_uri):
-        self.conn = sqlite3.connect(db_uri, check_same_thread=False)
+        self.conn = sqlite3.connect(db_uri)
         self.cursor = self.conn.cursor()
 
     def get_tables(self):
@@ -19,12 +19,16 @@ class Database:
 
     def get_records(self, table_name):
         self.cursor.execute(f"SELECT * FROM {table_name};")
-        return self.cursor.fetchall()
+        col_names = [description[0] for description in self.cursor.description]
+        records = [dict(zip(col_names, record)) for record in self.cursor.fetchall()]
+        return records
 
     def get_record(self, table_name, key):
         primary_key = self.get_primary_key(table_name)
         self.cursor.execute(f"SELECT * FROM {table_name} WHERE {primary_key} = ?;", (key,))
-        return self.cursor.fetchone()
+        col_names = [description[0] for description in self.cursor.description]
+        record = dict(zip(col_names, self.cursor.fetchone()))
+        return record
 
     def create_record(self, table_name, data):
         columns = ', '.join(data.keys())
@@ -43,3 +47,5 @@ class Database:
         self.cursor.execute(f"DELETE FROM {table_name} WHERE {primary_key} = ?;", (key,))
         self.conn.commit()
 
+    def close(self):
+        self.conn.close()
