@@ -17,8 +17,9 @@ class Database:
                 return column[1]  # The 2nd item in the tuple is the column name
         return None
 
-    def get_records(self, table_name):
-        self.cursor.execute(f"SELECT * FROM {table_name};")
+    def get_records(self, table_name, page, per_page):
+        offset = (page - 1) * per_page
+        self.cursor.execute(f"SELECT * FROM {table_name} LIMIT ? OFFSET ?;", per_page, offset)
         col_names = [description[0] for description in self.cursor.description]
         records = [dict(zip(col_names, record)) for record in self.cursor.fetchall()]
         return records
