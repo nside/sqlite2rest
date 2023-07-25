@@ -18,7 +18,7 @@ pip install sqlite2rest
 You can use SQLite2REST from the command line by providing the path to your SQLite database:
 
 ```
-python -m sqlite2rest /path/to/database.db
+sqlite2rest /path/to/database.db
 ```
 
 
