@@ -19,7 +19,7 @@ class Database:
 
     def get_records(self, table_name, page, per_page):
         offset = (page - 1) * per_page
-        self.cursor.execute(f"SELECT * FROM {table_name} LIMIT ? OFFSET ?;", per_page, offset)
+        self.cursor.execute(f"SELECT * FROM {table_name} LIMIT ? OFFSET ?;", (per_page, offset))
         col_names = [description[0] for description in self.cursor.description]
         records = [dict(zip(col_names, record)) for record in self.cursor.fetchall()]
         return records
@@ -27,9 +27,12 @@ class Database:
     def get_record(self, table_name, key):
         primary_key = self.get_primary_key(table_name)
         self.cursor.execute(f"SELECT * FROM {table_name} WHERE {primary_key} = ?;", (key,))
-        col_names = [description[0] for description in self.cursor.description]
-        record = dict(zip(col_names, self.cursor.fetchone()))
-        return record
+        row = self.cursor.fetchone()
+        if row is None:
+            return None
+        col_names = [column[0] for column in self.cursor.description]
+        return dict(zip(col_names, row))
+
 
     def create_record(self, table_name, data):
         columns = ', '.join(data.keys())
