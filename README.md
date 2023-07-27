@@ -31,6 +31,7 @@ You can also use the `/openapi.yaml` endpoint to get the OpenAPI specification f
 For each table in the database, the following endpoints are available:
 
 - `GET /<table>`: Get all records from the table.
+- `GET /<table>/<id>`: Returns the record with the given ID from the table.
 - `POST /<table>`: Create a new record in the table. The data for the record should be provided as JSON in the request body.
 - `PUT /<table>/<id>`: Update an existing record in the table. The data for the record should be provided as JSON in the request body.
 - `DELETE /<table>/<id>`: Delete an existing record from the table.
