@@ -59,3 +59,19 @@ class TestRoutes(unittest.TestCase):
         response = self.client.delete('/Artist/3')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(json.loads(response.data), {'message': 'Record deleted.'})
+
+    def test_get_single_record(self):
+        # First, create a record to get
+        self.client.post('/Artist', json={'ArtistId': 4, 'Name': 'Test Artist'})
+
+        # Then, get the record
+        response = self.client.get('/Artist/4')
+        self.assertEqual(response.status_code, 200)
+        artist = json.loads(response.data)
+        self.assertEqual(artist, {'ArtistId': 4, 'Name': 'Test Artist'})
+
+    def test_get_single_record_not_found(self):
+        # Try to get a record that does not exist
+        response = self.client.get('/Artist/999')
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(json.loads(response.data), {'message': 'Record not found.'})
