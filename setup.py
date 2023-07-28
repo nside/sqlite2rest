@@ -1,11 +1,21 @@
 from setuptools import setup, find_packages
+import re
 
 # Read the contents of the README file
 with open('README.md', 'r') as f:
     long_description = f.read()
 
+
+def find_version():
+    with open('sqlite2rest/__init__.py', 'r') as f:
+        version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
+        if version_match:
+            return version_match.group(1)
+        raise RuntimeError("Unable to find version string.")
+
 setup(
     name='sqlite2rest',
+    version=find_version(),
     version='1.3.0',
     description='A Python library for creating a RESTful API from an SQLite database using Flask.',
     author='Denis Laprise',

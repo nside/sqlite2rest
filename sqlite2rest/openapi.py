@@ -1,6 +1,7 @@
 from flask import current_app
 from openapi_spec_validator import validate_spec
 import yaml
+from . import __version__
 
 def get_operation_summary(method):
     return {
@@ -90,7 +91,7 @@ def generate_openapi_spec(db):
         "openapi": "3.0.0",
         "info": {
             "title": "SQLite2REST",
-            "version": "1.0.0"
+            "version": __version__
         },
         "paths": {}
     }
