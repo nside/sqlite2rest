@@ -16,7 +16,6 @@ def find_version():
 setup(
     name='sqlite2rest',
     version=find_version(),
-    version='1.3.0',
     description='A Python library for creating a RESTful API from an SQLite database using Flask.',
     author='Denis Laprise',
     author_email='git@2ni.net',
