@@ -3,6 +3,7 @@
 SQLite2REST is a Python library that simplifies the process of creating a RESTful API from an SQLite database using the Flask web framework. It automatically reads the schema of an SQLite database and generates endpoints for each table, allowing for Create, Read, Update, and Delete (CRUD) operations. The library also generates an OpenAPI specification for the API.
 
 ![Test status](https://img.shields.io/github/actions/workflow/status/nside/sqlite2rest/test.yaml)
+[![Documentation Status](https://readthedocs.org/projects/sqlite2rest/badge/?version=latest)](https://sqlite2rest.readthedocs.io/?badge=latest)
 
 ## Installation
 
