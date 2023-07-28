@@ -1,0 +1,545 @@
+info:
+  title: SQLite2REST
+  version: 1.0.0
+openapi: 3.0.0
+paths:
+  /Album:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Album table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Album table
+  /Album/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Album table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Album table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Album table
+  /Artist:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Artist table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Artist table
+  /Artist/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Artist table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Artist table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Artist table
+  /Customer:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Customer table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Customer table
+  /Customer/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Customer table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Customer table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Customer table
+  /Employee:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Employee table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Employee table
+  /Employee/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Employee table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Employee table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Employee table
+  /Genre:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Genre table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Genre table
+  /Genre/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Genre table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Genre table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Genre table
+  /Invoice:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Invoice table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Invoice table
+  /Invoice/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Invoice table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Invoice table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Invoice table
+  /InvoiceLine:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the InvoiceLine table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the InvoiceLine table
+  /InvoiceLine/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the InvoiceLine table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the InvoiceLine table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the InvoiceLine table
+  /MediaType:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the MediaType table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the MediaType table
+  /MediaType/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the MediaType table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the MediaType table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the MediaType table
+  /Playlist:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Playlist table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Playlist table
+  /Playlist/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Playlist table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Playlist table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Playlist table
+  /PlaylistTrack:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the PlaylistTrack table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the PlaylistTrack table
+  /PlaylistTrack/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the PlaylistTrack table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the PlaylistTrack table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the PlaylistTrack table
+  /Track:
+    get:
+      parameters:
+      - description: Page number to retrieve
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          type: integer
+      - description: Number of records per page
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 10
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Track table
+    post:
+      responses:
+        '200':
+          description: OK
+      summary: Create a new record in the Track table
+  /Track/<id>:
+    delete:
+      responses:
+        '200':
+          description: OK
+      summary: Delete a record from the Track table
+    get:
+      parameters:
+      - description: The ID of the record to retrieve
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: OK
+      summary: Retrieve all records from the Track table
+    put:
+      responses:
+        '200':
+          description: OK
+      summary: Update a record in the Track table
+
