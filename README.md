@@ -19,7 +19,7 @@ pip install sqlite2rest
 You can use SQLite2REST from the command line by providing the path to your SQLite database:
 
 ```
-sqlite2rest /path/to/database.db
+sqlite2rest serve /path/to/database.db
 ```
 
 
@@ -36,6 +36,12 @@ For each table in the database, the following endpoints are available:
 - `POST /<table>`: Create a new record in the table. The data for the record should be provided as JSON in the request body.
 - `PUT /<table>/<id>`: Update an existing record in the table. The data for the record should be provided as JSON in the request body.
 - `DELETE /<table>/<id>`: Delete an existing record from the table.
+
+You can also generate an OpenAPI specification from an SQLite database:
+
+```
+sqlite2rest spec /path/to/database.db
+```
 
 ## Contributing
 
