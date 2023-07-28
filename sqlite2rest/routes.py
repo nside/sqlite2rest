@@ -58,6 +58,6 @@ def setup_routes(app, tables, get_database):
     @app.route('/openapi.yaml', methods=['GET'])
     def openapi():
         app.logger.info('Getting OpenAPI specification')
-        spec = get_openapi_spec()
+        spec = get_openapi_spec(get_database())
         return spec, 200, {'Content-Type': 'text/vnd.yaml'}
 

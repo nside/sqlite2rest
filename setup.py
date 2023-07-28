@@ -6,7 +6,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='sqlite2rest',
-    version='1.2.0',
+    version='1.3.0',
     description='A Python library for creating a RESTful API from an SQLite database using Flask.',
     author='Denis Laprise',
     author_email='git@2ni.net',
