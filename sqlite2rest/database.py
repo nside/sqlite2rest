@@ -33,6 +33,10 @@ class Database:
         col_names = [column[0] for column in self.cursor.description]
         return dict(zip(col_names, row))
 
+    def get_table_schema(self, table_name):
+        self.cursor.execute(f"PRAGMA table_info({table_name});")
+        columns = self.cursor.fetchall()
+        return {column[1]: column[2] for column in columns}  # Return a dictionary mapping column names to SQLite types
 
     def create_record(self, table_name, data):
         columns = ', '.join(data.keys())
