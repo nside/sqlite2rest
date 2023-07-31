@@ -1,6 +1,169 @@
+components:
+  schemas:
+    Album: &id001
+      properties:
+        AlbumId:
+          type: integer
+        ArtistId:
+          type: integer
+        Title:
+          type: string
+      type: object
+    Artist: &id002
+      properties:
+        ArtistId:
+          type: integer
+        Name:
+          type: string
+      type: object
+    Customer: &id003
+      properties:
+        Address:
+          type: string
+        City:
+          type: string
+        Company:
+          type: string
+        Country:
+          type: string
+        CustomerId:
+          type: integer
+        Email:
+          type: string
+        Fax:
+          type: string
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        Phone:
+          type: string
+        PostalCode:
+          type: string
+        State:
+          type: string
+        SupportRepId:
+          type: integer
+      type: object
+    Employee: &id004
+      properties:
+        Address:
+          type: string
+        BirthDate:
+          type: string
+        City:
+          type: string
+        Country:
+          type: string
+        Email:
+          type: string
+        EmployeeId:
+          type: integer
+        Fax:
+          type: string
+        FirstName:
+          type: string
+        HireDate:
+          type: string
+        LastName:
+          type: string
+        Phone:
+          type: string
+        PostalCode:
+          type: string
+        ReportsTo:
+          type: integer
+        State:
+          type: string
+        Title:
+          type: string
+      type: object
+    Genre: &id005
+      properties:
+        GenreId:
+          type: integer
+        Name:
+          type: string
+      type: object
+    Invoice: &id006
+      properties:
+        BillingAddress:
+          type: string
+        BillingCity:
+          type: string
+        BillingCountry:
+          type: string
+        BillingPostalCode:
+          type: string
+        BillingState:
+          type: string
+        CustomerId:
+          type: integer
+        InvoiceDate:
+          type: string
+        InvoiceId:
+          type: integer
+        Total:
+          type: string
+      type: object
+    InvoiceLine: &id007
+      properties:
+        InvoiceId:
+          type: integer
+        InvoiceLineId:
+          type: integer
+        Quantity:
+          type: integer
+        TrackId:
+          type: integer
+        UnitPrice:
+          type: string
+      type: object
+    MediaType: &id008
+      properties:
+        MediaTypeId:
+          type: integer
+        Name:
+          type: string
+      type: object
+    Playlist: &id009
+      properties:
+        Name:
+          type: string
+        PlaylistId:
+          type: integer
+      type: object
+    PlaylistTrack: &id010
+      properties:
+        PlaylistId:
+          type: integer
+        TrackId:
+          type: integer
+      type: object
+    Track: &id011
+      properties:
+        AlbumId:
+          type: integer
+        Bytes:
+          type: integer
+        Composer:
+          type: string
+        GenreId:
+          type: integer
+        MediaTypeId:
+          type: integer
+        Milliseconds:
+          type: integer
+        Name:
+          type: string
+        TrackId:
+          type: integer
+        UnitPrice:
+          type: string
+      type: object
 info:
   title: SQLite2REST
-  version: 1.0.0
+  version: 0.4.0
 openapi: 3.0.0
 paths:
   /Album:
@@ -22,15 +185,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id001
+                type: array
           description: OK
       summary: Retrieve all records from the Album table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id001
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id001
           description: OK
       summary: Create a new record in the Album table
   /Album/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -45,11 +227,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id001
           description: OK
       summary: Retrieve all records from the Album table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id001
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id001
           description: OK
       summary: Update a record in the Album table
   /Artist:
@@ -71,15 +270,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id002
+                type: array
           description: OK
       summary: Retrieve all records from the Artist table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id002
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id002
           description: OK
       summary: Create a new record in the Artist table
   /Artist/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -94,11 +312,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id002
           description: OK
       summary: Retrieve all records from the Artist table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id002
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id002
           description: OK
       summary: Update a record in the Artist table
   /Customer:
@@ -120,15 +355,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id003
+                type: array
           description: OK
       summary: Retrieve all records from the Customer table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id003
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id003
           description: OK
       summary: Create a new record in the Customer table
   /Customer/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -143,11 +397,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id003
           description: OK
       summary: Retrieve all records from the Customer table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id003
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id003
           description: OK
       summary: Update a record in the Customer table
   /Employee:
@@ -169,15 +440,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id004
+                type: array
           description: OK
       summary: Retrieve all records from the Employee table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id004
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id004
           description: OK
       summary: Create a new record in the Employee table
   /Employee/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -192,11 +482,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id004
           description: OK
       summary: Retrieve all records from the Employee table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id004
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id004
           description: OK
       summary: Update a record in the Employee table
   /Genre:
@@ -218,15 +525,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id005
+                type: array
           description: OK
       summary: Retrieve all records from the Genre table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id005
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id005
           description: OK
       summary: Create a new record in the Genre table
   /Genre/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -241,11 +567,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id005
           description: OK
       summary: Retrieve all records from the Genre table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id005
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id005
           description: OK
       summary: Update a record in the Genre table
   /Invoice:
@@ -267,15 +610,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id006
+                type: array
           description: OK
       summary: Retrieve all records from the Invoice table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id006
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id006
           description: OK
       summary: Create a new record in the Invoice table
   /Invoice/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -290,11 +652,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id006
           description: OK
       summary: Retrieve all records from the Invoice table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id006
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id006
           description: OK
       summary: Update a record in the Invoice table
   /InvoiceLine:
@@ -316,15 +695,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id007
+                type: array
           description: OK
       summary: Retrieve all records from the InvoiceLine table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id007
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id007
           description: OK
       summary: Create a new record in the InvoiceLine table
   /InvoiceLine/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -339,11 +737,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id007
           description: OK
       summary: Retrieve all records from the InvoiceLine table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id007
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id007
           description: OK
       summary: Update a record in the InvoiceLine table
   /MediaType:
@@ -365,15 +780,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id008
+                type: array
           description: OK
       summary: Retrieve all records from the MediaType table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id008
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id008
           description: OK
       summary: Create a new record in the MediaType table
   /MediaType/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -388,11 +822,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id008
           description: OK
       summary: Retrieve all records from the MediaType table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id008
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id008
           description: OK
       summary: Update a record in the MediaType table
   /Playlist:
@@ -414,15 +865,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id009
+                type: array
           description: OK
       summary: Retrieve all records from the Playlist table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id009
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id009
           description: OK
       summary: Create a new record in the Playlist table
   /Playlist/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -437,11 +907,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id009
           description: OK
       summary: Retrieve all records from the Playlist table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id009
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id009
           description: OK
       summary: Update a record in the Playlist table
   /PlaylistTrack:
@@ -463,15 +950,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id010
+                type: array
           description: OK
       summary: Retrieve all records from the PlaylistTrack table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id010
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id010
           description: OK
       summary: Create a new record in the PlaylistTrack table
   /PlaylistTrack/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -486,11 +992,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id010
           description: OK
       summary: Retrieve all records from the PlaylistTrack table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id010
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id010
           description: OK
       summary: Update a record in the PlaylistTrack table
   /Track:
@@ -512,15 +1035,34 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema:
+                items: *id011
+                type: array
           description: OK
       summary: Retrieve all records from the Track table
     post:
+      requestBody:
+        content:
+          application/json:
+            schema: *id011
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id011
           description: OK
       summary: Create a new record in the Track table
   /Track/<id>:
     delete:
+      parameters:
+      - description: The ID of the record to delete
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -535,11 +1077,28 @@ paths:
           type: integer
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id011
           description: OK
       summary: Retrieve all records from the Track table
     put:
+      parameters:
+      - description: The ID of the record to update
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema: *id011
       responses:
         '200':
+          content:
+            application/json:
+              schema: *id011
           description: OK
       summary: Update a record in the Track table
 
